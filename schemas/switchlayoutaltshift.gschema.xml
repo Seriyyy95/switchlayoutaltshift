@@ -1,0 +1,9 @@
+<schemalist>
+  <schema id="org.gnome.shell.extensions.swithlayoutaltshift" path="/org/gnome/shell/extensions/switchlayoutaltshift/">
+    <key type="as" name="switch-layout">
+      <default><![CDATA[['<Alt>Shift_L', '<Shift>Alt_L']]]></default>
+      <summary>Key binding</summary>
+      <description>Switch lang keybinding</description>
+    </key>
+  </schema>
+</schemalist>

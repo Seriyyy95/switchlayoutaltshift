@@ -1,0 +1,13 @@
+{
+  "name": "SwitchLayoutAltShift",
+  "description": "Allows to switch input source using Alt+Shift",
+  "uuid": "switchlayoutaltshift@seriyyy95.com",
+  "shell-version": [
+    "44"
+  ],
+  "session-modes": [
+    "unlock-dialog",
+    "user"
+  ],
+  "version": 1.0
+}
