@@ -1,4 +1,3 @@
-============================
 Alt+Shift Layout Switcher
 ============================
 
@@ -9,7 +8,7 @@ Installation
 
 Installation via git is performed by cloning the repo into your local gnome-shell extensions directory (usually ~/.local/share/gnome-shell/extensions/)::
 
-    $ git clone ... <extensions-dir>/switchlayoutaltshift@seriyyy95.com
+    $ git clone https://github.com/Seriyyy95/switchlayoutaltshift.git <extensions-dir>/switchlayoutaltshift@seriyyy95.com
 
 After cloning the repo, the extension is practically installed yet disabled. In order to enable it, run the following command::
 
