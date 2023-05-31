@@ -16,5 +16,5 @@ After cloning the repo, the extension is practically installed yet disabled. In 
 
 GNOME Version Support
 --------------------------
-Tested only with GNOME 44 in Ubuntu and Fedora.
+Tested only with GNOME 42, 43 and 44 in Ubuntu and Fedora.
 
