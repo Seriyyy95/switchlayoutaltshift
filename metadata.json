@@ -2,6 +2,7 @@
   "name": "SwitchLayoutAltShift",
   "description": "Allows to switch input source using Alt+Shift",
   "uuid": "switchlayoutaltshift@seriyyy95.com",
+  "url": "https://github.com/Seriyyy95/switchlayoutaltshift.git",
   "shell-version": [
     "42", "43", "44"
   ],
@@ -9,5 +10,5 @@
     "unlock-dialog",
     "user"
   ],
-  "version": 1.0
+  "version": 1
 }

@@ -33,11 +33,7 @@ class Extension {
     }
 
     enable() {
-        let schemaDir = Ext.dir.get_child('schemas').get_path();
-        let schemaSource = Gio.SettingsSchemaSource.new_from_directory(schemaDir, Gio.SettingsSchemaSource.get_default(), false);
-        let schema = schemaSource.lookup(SCHEMA_NAME, false);
-
-        this.settings = new Gio.Settings({ settings_schema: schema });
+        this.settings = ExtensionUtils.getSettings();
     
         Main.wm.addKeybinding(
             SETTING_KEY_SWITCH_LAYOUT,
@@ -49,6 +45,7 @@ class Extension {
     }
 
     disable() {
+        //This extension uses unlock-dialog mode to provide ability to change input source using Alt+Shift on lock screen.
         Main.wm.removeKeybinding(SETTING_KEY_SWITCH_LAYOUT);
     }
 }
