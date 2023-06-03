@@ -22,11 +22,10 @@ const Main = imports.ui.main;
 const Meta = imports.gi.Meta;
 const Shell = imports.gi.Shell;
 const Gio = imports.gi.Gio; 
-const Ext = imports.misc.extensionUtils.getCurrentExtension();
+const ExtensionUtils = imports.misc.extensionUtils;
 const SourceMgr = imports.ui.status.keyboard.getInputSourceManager();
 
 const SETTING_KEY_SWITCH_LAYOUT = 'switch-layout';
-const SCHEMA_NAME = 'org.gnome.shell.extensions.switchlayoutaltshift';
 
 class Extension {
     constructor() {
@@ -63,3 +62,4 @@ function handleKey() {
         SourceMgr.inputSources[0].activate();
     }
 }
+

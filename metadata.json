@@ -3,6 +3,7 @@
   "description": "Allows to switch input source using Alt+Shift",
   "uuid": "switchlayoutaltshift@seriyyy95.com",
   "url": "https://github.com/Seriyyy95/switchlayoutaltshift.git",
+  "settings-schema": "org.gnome.shell.extensions.switchlayoutaltshift",
   "shell-version": [
     "42", "43", "44"
   ],
