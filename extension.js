@@ -44,7 +44,6 @@ class Extension {
     }
 
     disable() {
-        //This extension uses unlock-dialog mode to provide ability to change input source using Alt+Shift on lock screen.
         Main.wm.removeKeybinding(SETTING_KEY_SWITCH_LAYOUT);
     }
 }
