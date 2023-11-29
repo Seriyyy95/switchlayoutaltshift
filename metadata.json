@@ -5,7 +5,7 @@
   "url": "https://github.com/Seriyyy95/switchlayoutaltshift.git",
   "settings-schema": "org.gnome.shell.extensions.switchlayoutaltshift",
   "shell-version": [
-    "42", "43", "44"
+    "42", "43", "44", "45"
   ],
   "version": 1
 }
