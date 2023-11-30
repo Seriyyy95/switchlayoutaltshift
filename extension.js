@@ -15,50 +15,41 @@
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  */
+import Meta from 'gi://Meta';
+import Shell from 'gi://Shell';
 
-/* exported init */
+import {Extension} from 'resource:///org/gnome/shell/extensions/extension.js';
+import {wm} from 'resource:///org/gnome/shell/ui/main.js';
+import {getInputSourceManager} from 'resource:///org/gnome/shell/ui/status/keyboard.js';
 
-const Main = imports.ui.main;
-const Meta = imports.gi.Meta;
-const Shell = imports.gi.Shell;
-const Gio = imports.gi.Gio; 
-const ExtensionUtils = imports.misc.extensionUtils;
-const SourceMgr = imports.ui.status.keyboard.getInputSourceManager();
-
+const SourceMgr = getInputSourceManager();
 const SETTING_KEY_SWITCH_LAYOUT = 'switch-layout';
 
-class Extension {
-    constructor() {
+export default class SwitchLayoutExtension extends Extension {
+    constructor(...args) {
+        super(...args);
     }
-
     enable() {
-        this.settings = ExtensionUtils.getSettings();
-    
-        Main.wm.addKeybinding(
+        wm.addKeybinding(
             SETTING_KEY_SWITCH_LAYOUT,
-            this.settings,
+            this.getSettings(),
             Meta.KeyBindingFlags.NONE,
             Shell.ActionMode.ALL,
-            handleKey
+            this.handleKey
         );
     }
 
     disable() {
-        Main.wm.removeKeybinding(SETTING_KEY_SWITCH_LAYOUT);
+        wm.removeKeybinding(SETTING_KEY_SWITCH_LAYOUT);
+    }
+    
+    handleKey() {
+        let max = Object.keys(SourceMgr.inputSources).length - 1;
+        let current = SourceMgr.currentSource.index;
+        if (current < max) {
+            SourceMgr.inputSources[current + 1].activate();
+        } else {
+            SourceMgr.inputSources[0].activate();
+        }
     }
 }
-
-function init() {
-    return new Extension();
-}
-
-function handleKey() {
-    let max = Object.keys(SourceMgr.inputSources).length - 1;
-    let current = SourceMgr.currentSource.index;
-    if(current < max){
-        SourceMgr.inputSources[current+1].activate();
-    }else{
-        SourceMgr.inputSources[0].activate();
-    }
-}
-
