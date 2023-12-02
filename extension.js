@@ -22,7 +22,6 @@ import {Extension} from 'resource:///org/gnome/shell/extensions/extension.js';
 import {wm} from 'resource:///org/gnome/shell/ui/main.js';
 import {getInputSourceManager} from 'resource:///org/gnome/shell/ui/status/keyboard.js';
 
-const SourceMgr = getInputSourceManager();
 const SETTING_KEY_SWITCH_LAYOUT = 'switch-layout';
 
 export default class SwitchLayoutExtension extends Extension {
@@ -37,6 +36,7 @@ export default class SwitchLayoutExtension extends Extension {
             Shell.ActionMode.ALL,
             this.handleKey
         );
+
     }
 
     disable() {
@@ -44,12 +44,14 @@ export default class SwitchLayoutExtension extends Extension {
     }
     
     handleKey() {
-        let max = Object.keys(SourceMgr.inputSources).length - 1;
-        let current = SourceMgr.currentSource.index;
-        if (current < max) {
-            SourceMgr.inputSources[current + 1].activate();
-        } else {
-            SourceMgr.inputSources[0].activate();
+        let sourceMgr = getInputSourceManager();
+
+        let max = Object.keys(sourceMgr.inputSources).length - 1;
+        let current = sourceMgr.currentSource.index;
+        if(current < max){
+           sourceMgr.inputSources[current+1].activate();
+        }else{
+           sourceMgr.inputSources[0].activate();
         }
     }
 }
